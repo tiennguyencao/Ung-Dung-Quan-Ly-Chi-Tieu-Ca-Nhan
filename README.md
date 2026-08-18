@@ -77,4 +77,4 @@ Personal Expense Manager là ứng dụng hỗ trợ người dùng ghi chép, t
 
 ## 5. Phạm vi dự án (Scope)
 
-Vì là đồ án cá nhân trong khuôn khổ giữa kỳ, phiên bản đầu tiên sẽ tập trung vào các chức năng cốt lõi: quản lý tài khoản, quản lý giao dịch, quản lý danh mục và thống kê cơ bản. Các chức năng nâng cao (giao dịch định kỳ, xuất báo cáo, thông báo...) sẽ được phát triển ở giai đoạn tiếp theo nếu thời gian cho phép.
+Phiên bản đầu tiên sẽ tập trung vào các chức năng cốt lõi: quản lý tài khoản, quản lý giao dịch, quản lý danh mục và thống kê cơ bản. Các chức năng nâng cao (giao dịch định kỳ, xuất báo cáo, thông báo...) có thể sẽ được phát triển ở giai đoạn tiếp theo.
