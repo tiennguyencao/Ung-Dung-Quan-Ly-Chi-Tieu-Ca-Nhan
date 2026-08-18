@@ -1,6 +1,6 @@
 # 💰 Ứng dụng Quản lý Chi tiêu Cá nhân (Personal Expense Manager)
 
-> **Đồ án giữa kỳ – Môn Software Engineering**
+> **Bài tập lớn giữa kỳ – Môn Software Engineering**
 > Sinh viên thực hiện: Nguyễn Cao Tiến – 22012834
 
 ## 1. Giới thiệu
