@@ -73,7 +73,7 @@ Personal Expense Manager là ứng dụng hỗ trợ người dùng ghi chép, t
 | Công cụ hỗ trợ | VS Code, Postman, Figma (thiết kế UI) |
 | Triển khai (Deployment) | Vercel/Netlify (Frontend), Render/Railway (Backend) |
 
-> *Ghi chú: Đây là đề xuất công nghệ ban đầu, có thể điều chỉnh theo kiến thức đã học hoặc yêu cầu cụ thể của giảng viên (ví dụ: thay bằng Java Spring Boot, Python Django/Flask, hoặc .NET nếu phù hợp hơn).*
+> *Ghi chú: Đây là đề xuất công nghệ ban đầu, có thể điều chỉnh sau 
 
 ## 5. Phạm vi dự án (Scope)
 
