@@ -1,0 +1,23 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/dev-dist/
+**/coverage/
+
+# Local environment files; keep the checked-in examples
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example

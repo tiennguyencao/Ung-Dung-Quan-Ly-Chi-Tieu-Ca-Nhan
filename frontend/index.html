@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover exposes env(safe-area-inset-*) for the bottom nav and
+         sheets; interactive-widget=resizes-content shrinks the layout viewport
+         when the on-screen keyboard opens, so focused inputs and a sheet's Save
+         button stay reachable instead of being hidden behind the keyboard. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content"
+    />
+    <meta name="description" content="Track income, expenses and budgets, and see where your money goes." />
+    <meta name="theme-color" content="#0E4B3F" />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- iOS has no manifest support for standalone launch; these are what make
+         "Add to Home Screen" open without Safari chrome. -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Sổ Chi Tiêu" />
+
+    <title>Sổ Chi Tiêu — Personal Expense Manager</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

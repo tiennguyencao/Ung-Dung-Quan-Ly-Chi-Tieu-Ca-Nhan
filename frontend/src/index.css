@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  /* Stop iOS inflating text when the device is rotated. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply font-sans text-charcoal bg-paper;
+  /* Guarantees the "no horizontal overflow" requirement even if a future
+     wide element (a chart, a long unbroken string) would otherwise push
+     the layout sideways on a narrow screen. */
+  overflow-x: hidden;
+  /* App-like touch feel: no grey flash on tap, and scroll chaining/
+     pull-to-refresh contained rather than bouncing the whole page. */
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+/* iOS Safari auto-zooms when focusing a control whose font-size is under
+   16px, which visibly jerks the layout on every form field. The app's
+   controls are text-sm (14px), so they're bumped to 16px on phones only —
+   desktop keeps the tighter size. The :not() selectors exist purely to
+   out-specify Tailwind's .text-sm utility without needing !important. */
+@media (max-width: 767px) {
+  input:not([type='checkbox']):not([type='radio']),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Visible keyboard focus everywhere, instead of the browser default outline
+   being suppressed anywhere — accessibility requirement from the UI spec. */
+:focus-visible {
+  outline: 2px solid #0e4b3f;
+  outline-offset: 2px;
+}
+
+/* Respect the OS-level motion preference — sheets/FAB/progress bars still
+   change state instantly, they just stop animating the transition. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

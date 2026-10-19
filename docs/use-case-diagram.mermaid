@@ -1,0 +1,88 @@
+flowchart LR
+  Guest[Guest]
+  User[User]
+  EmailSvc[/Email Service/]
+  Scheduler[/Scheduler/]
+  NotifySvc[/Notification Service/]
+
+  subgraph SYS["Personal Expense Manager"]
+    subgraph AUTH["A. Authentication"]
+      UC01(["UC-01 Register"])
+      UC02(["UC-02 Login"])
+      UC03(["UC-03 Logout"])
+      UC04(["UC-04 View/Update Profile"])
+      UC05(["UC-05 Reset Password"])
+    end
+    subgraph TXN["B. Transaction Mgmt"]
+      UC06(["UC-06 Add Transaction"])
+      UC07(["UC-07 Edit Transaction"])
+      UC08(["UC-08 Delete Transaction"])
+      UC09(["UC-09 View/Filter Transactions"])
+      UC10(["UC-10 Search Transactions"])
+    end
+    subgraph CAT["C. Category Mgmt"]
+      UC11(["UC-11 View Categories"])
+      UC12(["UC-12 Create Category"])
+      UC13(["UC-13 Edit Category"])
+      UC14(["UC-14 Delete Category"])
+    end
+    subgraph BUD["D. Budget Mgmt"]
+      UC15(["UC-15 Set Budget Limit"])
+      UC16(["UC-16 View Budget Status"])
+    end
+    subgraph STA["E. Statistics & Reporting"]
+      UC17(["UC-17 View Overview"])
+      UC18(["UC-18 View Category Breakdown"])
+      UC19(["UC-19 Compare Periods"])
+    end
+    subgraph FUT["F. Future Features"]
+      UC20(["UC-20 Manage Recurring Txns"])
+      UC21(["UC-21 Export Report"])
+      UC22(["UC-22 Backup/Restore Data"])
+      UC23(["UC-23 Daily Reminder"])
+      UC24(["UC-24 Budget Alert Notification"])
+    end
+    subgraph LOC["G. Localization"]
+      UC25(["UC-25 Change Interface Language"])
+    end
+  end
+
+  Guest --> UC01
+  Guest --> UC02
+  Guest --> UC05
+  User --> UC03
+  User --> UC04
+  User --> UC06
+  User --> UC07
+  User --> UC08
+  User --> UC09
+  User --> UC10
+  User --> UC11
+  User --> UC12
+  User --> UC13
+  User --> UC14
+  User --> UC15
+  User --> UC16
+  User --> UC17
+  User --> UC18
+  User --> UC19
+  User -.-> UC20
+  User -.-> UC21
+  User -.-> UC22
+  User -.-> UC23
+  User -.-> UC24
+  Guest --> UC25
+  User --> UC25
+
+  UC05 -.-> EmailSvc
+  UC20 -.-> Scheduler
+  UC23 -.-> Scheduler
+  UC23 -.-> NotifySvc
+  UC24 -.-> NotifySvc
+
+  UC10 -.->|"«extend»"| UC09
+  UC13 -.->|"«include»"| UC11
+  UC14 -.->|"«include»"| UC11
+
+  classDef future stroke-dasharray: 5 5,fill:#f5f5f5,color:#888888;
+  class UC20,UC21,UC22,UC23,UC24,Scheduler,NotifySvc future;

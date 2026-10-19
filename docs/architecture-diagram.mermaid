@@ -1,0 +1,49 @@
+flowchart TB
+  Browser["Browser"]
+
+  subgraph FE["Frontend — React SPA"]
+    direction LR
+    UI["UI Components / Pages"] --> STATE["Frontend State<br/>(Context + component state)"] --> APILAYER["API Layer<br/>(Axios client)"]
+  end
+
+  Browser --> UI
+  APILAYER == "HTTPS / JSON<br/>JWT in Authorization header" ==> ROUTES
+
+  subgraph BE["Backend — Express 5, Modular Monolith"]
+    direction TB
+    ROUTES["REST API (Routes)"]
+    MW["Middleware<br/>Auth (JWT verify) then Validation"]
+    ROUTES --> MW
+
+    subgraph TXNM["Transaction Module — shown in full, others mirror this shape"]
+      direction LR
+      TC["Controller"] --> TS["Service"] --> TM["Model"]
+    end
+
+    AUTHM["Auth Module<br/>Controller → Service → Model: User"]
+    USERM["Users/Profile Module<br/>Controller → Service → User model"]
+    CATM["Category Module<br/>Controller → Service → Model: Category"]
+    BUDM["Budget Module<br/>Controller → Service → Model: Budget"]
+    STAM["Statistics Module<br/>Controller → Service — no own Model"]
+
+    MW --> TC
+    MW --> AUTHM
+    MW --> USERM
+    MW --> CATM
+    MW --> BUDM
+    MW --> STAM
+  end
+
+  TM --> DB[("MongoDB")]
+  AUTHM --> DB
+  USERM --> DB
+  CATM --> DB
+  BUDM --> DB
+  STAM -.->|reads| TM
+  STAM -.->|labels via| CATM
+  BUDM -.->|aggregates| TM
+
+  AUTHM -.->|password reset email| EMAIL[/"Email Service"/]
+
+  classDef module fill:#eef,stroke:#88a
+  class TXNM,AUTHM,USERM,CATM,BUDM,STAM module

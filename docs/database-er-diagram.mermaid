@@ -1,0 +1,34 @@
+erDiagram
+    USER ||--o{ CATEGORY : "owns (custom only)"
+    USER ||--o{ TRANSACTION : "owns"
+    USER ||--o{ BUDGET : "owns"
+    CATEGORY ||--o{ TRANSACTION : "categorizes"
+    CATEGORY ||--o{ BUDGET : "scopes (optional)"
+
+    USER {
+        ObjectId _id PK
+        string email UK
+        string passwordHash
+        string name
+    }
+    CATEGORY {
+        ObjectId _id PK
+        ObjectId userId FK "nullable — null means default"
+        boolean isDefault
+        string name
+    }
+    TRANSACTION {
+        ObjectId _id PK
+        ObjectId userId FK
+        ObjectId categoryId FK
+        string type
+        number amount
+        date date
+    }
+    BUDGET {
+        ObjectId _id PK
+        ObjectId userId FK
+        ObjectId categoryId FK "nullable — null means overall"
+        string month
+        number limitAmount
+    }
