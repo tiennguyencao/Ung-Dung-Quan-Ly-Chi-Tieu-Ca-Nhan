@@ -187,10 +187,6 @@ Ghi chú: test tự động hiện tại là bộ kiểm thử tập trung cho m
 npm run dev -- --host 0.0.0.0
 ```
 
-Sau đó trên điện thoại mở `http://<LAN-IP-cua-laptop>:5173`. Với cấu hình mặc định, Vite chuyển tiếp `/api` tới backend đang chạy trên chính laptop. Cho phép cổng qua firewall nếu được yêu cầu. Không nhập `localhost` trên điện thoại vì khi đó nó trỏ tới chính điện thoại, không phải laptop. Cách này dùng được để demo web; service worker/PWA install thường cần HTTPS (ngoại trừ `localhost` trên chính thiết bị).
-
-**Demo qua URL đã deploy:** đặt `VITE_API_BASE_URL` trỏ tới API thật nếu frontend và backend khác origin, và đặt `CLIENT_ORIGIN` ở backend thành origin frontend được phép. Kiểm tra luồng đăng nhập và CRUD trên điện thoại trước buổi demo. Với deadline gần, URL HTTPS đã kiểm thử thường ít rủi ro hơn.
-
 ## 8. Bảo mật và dữ liệu
 
 - Password lưu dưới dạng hash; không lưu mật khẩu dạng plaintext.
