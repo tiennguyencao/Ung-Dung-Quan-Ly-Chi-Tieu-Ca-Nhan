@@ -3,7 +3,7 @@
 > **Bài tập lớn giữa kỳ · Software Engineering**  
 > Sinh viên thực hiện: Nguyễn Cao Tiến · 22012834
 
-Personal Expense Manager là ứng dụng web quản lý thu–chi cá nhân, hỗ trợ ghi nhận giao dịch, tổ chức danh mục, đặt ngân sách và xem thống kê. Ứng dụng dùng React ở frontend, Express ở backend và MongoDB để lưu dữ liệu. Giao diện responsive và cấu hình PWA cho phép trải nghiệm trên điện thoại qua trình duyệt; dự án **không yêu cầu tạo APK**.
+Ứng dụng quản lý chi tiêu cá nhân là ứng dụng web quản lý thu–chi cá nhân, hỗ trợ ghi nhận giao dịch, tổ chức danh mục, đặt ngân sách và xem thống kê. Ứng dụng dùng React ở frontend, Express ở backend và MongoDB để lưu dữ liệu. Giao diện responsive và cấu hình PWA cho phép trải nghiệm qua trình duyệt.
 
 ## 1. Phạm vi phiên bản hiện tại
 
@@ -179,12 +179,7 @@ Script frontend test chạy ba lượt nhằm kiểm tra hành vi ngày/tháng �
 
 Ghi chú: test tự động hiện tại là bộ kiểm thử tập trung cho một số lỗi hồi quy quan trọng; nó **chưa thay thế** toàn bộ test case trong test strategy. Trước khi nộp, cần thực hiện checklist demo, đặc biệt với xác thực, phân quyền giữa hai tài khoản, thao tác CRUD, ngân sách và các màn hình responsive.
 
-## 7. Demo trên điện thoại bằng trình duyệt
-
-1. Triển khai hoặc chạy frontend/backend tại các địa chỉ mà điện thoại truy cập được; nếu demo qua mạng Internet, dùng HTTPS cho PWA service worker.
-2. Đảm bảo frontend gọi đúng API và `CLIENT_ORIGIN` ở backend phù hợp cấu hình CORS.
-3. Mở URL frontend bằng trình duyệt điện thoại; kiểm thử đăng nhập, tạo giao dịch và xem biểu đồ.
-4. Có thể dùng chức năng **Add to Home Screen** của trình duyệt để mở như một PWA. Đây vẫn là web app, không phải APK.
+## 7. Demo bằng trình duyệt
 
 **Demo trong cùng Wi-Fi (không deploy):** lấy địa chỉ LAN IPv4 của laptop. Trong terminal frontend chạy:
 
@@ -203,10 +198,5 @@ Sau đó trên điện thoại mở `http://<LAN-IP-cua-laptop>:5173`. Với c�
 - Service kiểm tra quyền sở hữu dữ liệu theo user ID; các trường nhạy cảm bị loại khỏi payload có thể ghi.
 - JWT secret, MongoDB URI và SMTP credentials chỉ đặt trong environment variables.
 - Dữ liệu tài chính không được cache để dùng offline.
-- Không dùng dữ liệu tài chính thật hoặc mật khẩu cá nhân trong buổi demo; nên tạo tài khoản thử nghiệm và giao dịch giả lập.
 
-Ứng dụng là project học tập, chưa nên xem là dịch vụ tài chính production đã được audit bảo mật hoặc chịu tải.
-
-## 9. Tài liệu rà soát cuối
-
-Trước khi nộp, mở [Final review & demo checklist](docs/final-review-and-demo-checklist.md) để xem các sửa đổi trong gói này, phạm vi xác minh được và những kiểm tra cần chạy trên máy demo.
+Ứng dụng là project học tập, không phải là dịch vụ tài chính production đã được audit bảo mật hoặc chịu tải.
