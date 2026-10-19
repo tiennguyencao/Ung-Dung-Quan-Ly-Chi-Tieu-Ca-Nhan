@@ -1,4 +1,4 @@
-# 💰 Personal Expense Manager — Sổ Chi Tiêu
+# 💰 Ứng dụng quản lý chi tiêu cá nhân
 
 > **Bài tập lớn giữa kỳ · Software Engineering**  
 > Sinh viên thực hiện: Nguyễn Cao Tiến · 22012834
